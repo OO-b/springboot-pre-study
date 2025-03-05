@@ -1,0 +1,26 @@
+spring:
+  # .env import
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: hanghae
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hanghae_previous?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: hanghae
+    password: dlsdud1404!
+#    url: ${DB_URL}
+#    username: ${DB_USERNAME}
+#    password: ${DB_DB_PASSWORD}
+
+  jwt:
+    header: Authorization
+    # Base64로 인코딩 된 키값
+    secret: dfklWWHObhUWHEJKHhkjHWKXEHWUIEHXWUIWjhkjHJKWHEJWKeKEhjhKJHEWlhjkjklewkjkljkljewqnnjkbctjkwbtek
+    # token 유효시간 (24시간 1일)
+    token-validity-in-seconds: 86400
+
+  jpa:
+    hibernate:
+      ddl-auto: update
