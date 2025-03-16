@@ -36,9 +36,9 @@ class UserControllerTest {
     }
 
     @Test
-    @Transactional
+//    @Transactional
     void whenValidUserData_thenSignupSuccess() throws Exception {
-        User user = new User("ddd", "qwer1234");
+        User user = new User("baeiiyy", "qwer1234");
 
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(user);
@@ -57,7 +57,7 @@ class UserControllerTest {
     @Test
     void whenInvalidUserData_thenSignupFails() throws Exception {
         //TODO SQL 처리 (PRE)
-        User user = new User("ddd", "qwer1234");
+        User user = new User("baeiiyy", "qwer1234");
 
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(user);

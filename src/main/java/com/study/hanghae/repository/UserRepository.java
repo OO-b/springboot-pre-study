@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<User, String> {
      * @return 중복여부
      * */
     boolean existsByUsername(String username);
+
+    User findByUsername(String username);
 }

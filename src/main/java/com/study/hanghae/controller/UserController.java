@@ -4,6 +4,7 @@ import com.study.hanghae.entity.User;
 import com.study.hanghae.service.UserService;
 import dto.SignupRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,11 @@ import java.util.HashMap;
 @RequestMapping("/api/user")
 public class UserController {
 
+    @Autowired
     private final UserService userService;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
     //TODO ModelMapper 추가
 
     @Autowired
@@ -35,7 +40,7 @@ public class UserController {
         String userName = signupRequestDto.getUsername(); //사용자 이름
 
         // 사용자 정보 저장
-        User user = new User(userName, signupRequestDto.getPassword());
+        User user = new User(userName, bCryptPasswordEncoder.encode(signupRequestDto.getPassword()));
         userService.signup(user);
 
         //결과메시지 출력
